@@ -27,7 +27,7 @@ const posts = (await Astro.glob("../posts/*.md")).sort(
 						({
 							url,
 							frontmatter: {description, slug, title, added: date},
-						}) => <Post {description} {date} {slug} />
+						}) => <Post {title} {description} {date} {slug} />
 					)
 				}
 			</ul>

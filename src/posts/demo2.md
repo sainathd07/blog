@@ -1,7 +1,7 @@
 ---
 layout: "../layouts/BlogPost.astro"
 title: "demo post 2"
-slug: demo-post
+slug: demo-post2
 description: "This is a demo post"
 added: "Apr 10 2024"
 ---
