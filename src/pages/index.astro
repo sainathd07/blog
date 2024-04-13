@@ -1,5 +1,13 @@
 ---
 import Header from "../components/Header.astro"
+import Post from "../components/Post.astro"
+
+// Use Astro.glob() to fetch all posts, and then sort them by date.
+const posts = (await Astro.glob("../posts/*.md")).sort(
+	(a, b) =>
+		new Date(b.frontmatter.updated || b.frontmatter.added).valueOf() -
+		new Date(a.frontmatter.updated || a.frontmatter.added).valueOf()
+);
 ---
 
 <html lang="en">
@@ -12,5 +20,17 @@ import Header from "../components/Header.astro"
 	</head>
 	<body>
 		<Header />
+		<content>
+			<ul class="posts-list">
+				{
+					posts.map(
+						({
+							url,
+							frontmatter: {description, slug, title, added: date},
+						}) => <Post {description} {date} {slug} />
+					)
+				}
+			</ul>
+		</content>
 	</body>
 </html>
