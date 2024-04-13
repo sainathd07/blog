@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro"
 import Post from "../components/Post.astro"
+import "../style/global.css"
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("../posts/*.md")).sort(
@@ -17,6 +18,7 @@ const posts = (await Astro.glob("../posts/*.md")).sort(
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Sainath Dushatti</title>
+		<link rel="stylesheet" href="global.css">
 	</head>
 	<body>
 		<Header />
