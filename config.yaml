@@ -1,0 +1,9 @@
+baseURL: ""
+languageCode: "en-us"
+title: "Sainath Dushatti"
+paginate: 5
+theme: "PaperModX"
+
+module:
+  imports:
+  -path: github.com/reorx/hugo-PaperModX
