@@ -8,10 +8,12 @@ module:
   imports:
   -path: github.com/reorx/hugo-PaperModX
 
-enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
+# robot.txt general settings
+enableRobotsTXT: true # generates robot.txt
+buildDrafts: false # draft content will not be built
+buildFuture: true # content scheduled for future publication will be built
+buildExpired: true # expired content will be built
+pygentsUseClasses: true # pygments will use CSS Classes
 
 googleAnalytics: UA-123-45
 
@@ -24,7 +26,7 @@ minify:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Sainath Dushatti # Title of the Website
-  description: "Sainath Dushatti's Portfolio" # A short description of the site
+  description: "Writing about the things I learn and build" # A short description of the site
   keywords: [Blog, Portfolio, Sainath Dushatti] # Keywords for the site for SEO purposes
   author: Me # author of the content
   # author: ["Me", "You"] # multiple authors
@@ -61,7 +63,7 @@ params:
   # configures profile display on the website
   profileMode:
     enabled: false # profile mode is disabled
-    title: Sainath Dushatti # title of the profile
+    title: Computer is my World # title of the profile
     subtitle: "Welcome to my corner of the internet" # text under the title
     imageUrl: ""
     imageWidth: 120
@@ -76,7 +78,10 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my corner of the internet
+    Content: "Welcome to my corner of the internet. I'm Sainath, a developer from Ohio.\
+    \n Here I dump my thoughts and learnings about the topics that interest me."
+
+
 
   socialIcons:
     - name: x
@@ -98,36 +103,37 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/sainathd07/blog"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
   # for search
-  # https://fusejs.io/api/options.html
   fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
+    isCaseSensitive: false # ignore case differences
+    shouldSort: true # enable sorting
+    location: 0 # index position in the string
+    distance: 1000 # distance between the search query location and the text being searched
     threshold: 0.4
     minMatchCharLength: 0
-    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    limit: 10 # number of search results returned
     keys: ["title", "permalink", "summary", "content"]
+
 menu:
   main:
-    - identifier: categories
-      name: categories
-      url: /categories/
+    - identifier: paperboard
+      name: Paper Board
+      url: /paperboard/
       weight: 10
-    - identifier: tags
-      name: tags
-      url: /tags/
+    - identifier: posts
+      name: Posts
+      url: /posts/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
+    - identifier: projects
+      name: Projects
+      url: /projects/
       weight: 30
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+
+# configuring code syntax highlighting
 pygmentsUseClasses: true
 markup:
   highlight:
