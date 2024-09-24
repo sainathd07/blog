@@ -35,15 +35,15 @@ params:
   defaultTheme: auto # dark, light # controls the theme of the site.
   disableThemeToggle: false # enable the ability for users to toggle between light and dark themes
 
-  ShowReadingTime: true # Displays the estimated reading time for each post
+  ShowReadingTime: false # Do not Display the estimated reading time for each post
   ShowShareButtons: true # Enables social media share buttons on posts
   ShowPostNavLinks: true # Shows "Previous" and "Next" post navigation links
   ShowBreadCrumbs: true # Displays breadcrumb navigation to help users understand where they are on the site
   ShowCodeCopyButtons: true # enable copy buttons for code snippets, useful for technical blogs or documentation
-  ShowWordCount: true # Displays the word count of posts
-  ShowRssButtonInSectionTermList: true # shows an RSS feed button in section term lists for subscribing to updates
+  ShowWordCount: false # Do not Display the word count of posts
+  ShowRssButtonInSectionTermList: false # doesn't show an RSS feed button in section term lists for subscribing to updates
   UseHugoToc: true # Enables Hugo's Table of Contents (TOC) feature for long posts, which generates navigation for headings
-  disableSpecial1stPost: false # enables special styling for the first post on the homepage
+  disableSpecial1stPost: true # disables special styling for the first post on the homepage
   disableScrollToTop: false # enables the "Scroll to Top" button that is typically present in blogs for easier navigation
   comments: false # Disables comments on posts
   hidemeta: false # Shows post metadata (like date, author, etc.)
@@ -76,18 +76,18 @@ params:
         url: /tags
 
   # home-info mode
-  homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: "Welcome to my corner of the internet. I'm Sainath, a developer from Ohio.\
-    \n Here I dump my thoughts and learnings about the topics that interest me."
+  # homeInfoParams:
+  #  Title: "Hi there \U0001F44B"
+  #  Content: "Welcome to my corner of the internet. I'm Sainath, a developer from Ohio.\
+  #  \n Here I dump my thoughts and learnings about the topics that interest me."
 
 
 
-  socialIcons:
-    - name: x
-      url: "https://x.com/iamsainathd"
-    - name: github
-      url: "https://github.com/sainathd07"
+  # socialIcons:
+  #  - name: x
+  #    url: "https://x.com/iamsainathd"
+  #  - name: github
+  #    url: "https://github.com/sainathd07"
 
   analytics:
     google:
@@ -121,17 +121,29 @@ params:
 menu:
   main:
     - identifier: paperboard
-      name: Paper Board
+      name: paperboard
       url: /paperboard/
       weight: 10
     - identifier: posts
-      name: Posts
+      name: posts
       url: /posts/
       weight: 20
-    - identifier: projects
-      name: Projects
-      url: /projects/
+    - identifier: twitter
+      name: twitter
+      url: "https://x.com/iamsainathd"
       weight: 30
+    - identifier: github
+      name: github
+      url: "https://github.com/sainathd07"
+      weight: 40
+    - identifier: linkedin
+      name: linkedin
+      url: "https://www.linkedin.com/in/sainath-dushatti/"
+      weight: 40
+    - identifier: search
+      name: 🔍
+      url: /search/
+      weight: 50
 
 # configuring code syntax highlighting
 pygmentsUseClasses: true
@@ -143,3 +155,9 @@ markup:
     # guessSyntax: true
     # lineNos: true
     # style: monokai
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
